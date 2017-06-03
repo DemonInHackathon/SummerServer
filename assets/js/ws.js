@@ -5,10 +5,10 @@ $(function(){
       $x = $('#wsInputX'),
       $y = $('#wsInputY');
   $('#submit').click(function(){
-    socket.emit("location update",{x: $x.val(), y: $y.val()});
+    socket.emit("update location", $x.val(), $y.val());
   });
 
-  socket.on("location update", function(message) {
-    $("h1").html("X:" + message.x + " Y: " + message.y);
+  socket.on("update location", function(lx, ly) {
+    $("h1").html("X:" + lx + " Y: " + ly);
   });
 });
