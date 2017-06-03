@@ -1,0 +1,12 @@
+html
+	head
+		title!= title
+		script(src="/js/jquery.js")
+		script(src="/socket.io/socket.io.js")
+		script(src="/js/ws.js")
+	body
+		h1#text Hello
+		input#wsInputX(type="text" placeholder="x")
+		input#wsInputY(type="text" placeholder="y")
+		button#submit 发布
+		ul#container
