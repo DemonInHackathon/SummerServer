@@ -15,8 +15,8 @@ $(function(){
   var x = 10, y = 10;
 
   function clearSomewhere(x, y) {
-      var clearX = x/2048*windowHeight - offsetX;
-      var clearY = windowHeight - y/2048*windowHeight - offsetY;
+      var clearX = x*windowHeight - offsetX;
+      var clearY = windowHeight - y*windowHeight - offsetY;
       ctx.beginPath();
       ctx.arc(clearX, clearY, 20, 0, Math.PI * 20);
       ctx.fill();
@@ -47,7 +47,7 @@ $(function(){
     ctx2.fill();
     var mapX = x/windowHeight*2048;
     var mapY = 20048 - y/windowHeight*2048;
-    socket.emit("set direction", $x.val(mapX), $y.val(mapY));
+    socket.emit("set direction", mapX, mapY);
   }
 
   canvasPoints.addEventListener("click", mouseClick, false);
@@ -63,4 +63,10 @@ $(function(){
   function getWater(value) {
     document.getElementById("water").style.width = value;
   }
+
+  socket.on("update status", function(heat, water, hp){
+    getHP(hp);
+    getHeat(heat);
+    getWater(water);
+  })
 });

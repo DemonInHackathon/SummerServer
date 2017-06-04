@@ -31,6 +31,20 @@ io.on('connection', socket => {
     console.log(dataX, dataY)
   })
 
+  socket.on("update status", (heat, water, hp) => {
+    // we tell the client to execute 'update status'
+    socket.emit("update status", heat, water, hp)
+
+    console.log("=== Status: ", heat, water, hp)
+  })
+
+  socket.on("set direction", (dataX, dataY) => {
+    // we tell the client to execute 'update location'
+    socket.emit("set direction", dataX, dataY)
+
+    console.log("***** Set Direction at: ", dataX, dataY)
+  })
+
   // when the user disconnects.. perform this
   socket.on('disconnect', () => {
     console.log("Goodbye!")
