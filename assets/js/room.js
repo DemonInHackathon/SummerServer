@@ -55,14 +55,17 @@ $(function(){
 
   function getHP(value) {
     document.getElementById("hp").style.width = (value*100).toString() + "%";
+    console.log("hp:" value);
   }
 
   function getHeat(value) {
     document.getElementById("heat").style.width = (value*100).toString() + "%";
+    console.log("heat:" value);
   }
 
   function getWater(value) {
     document.getElementById("water").style.width = (value*100).toString() + "%";
+    console.log("water:" value);
   }
 
   socket.on("update status", function(heat, water, hp){
