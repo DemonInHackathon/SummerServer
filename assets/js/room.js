@@ -21,7 +21,10 @@ $(function(){
       ctx.arc(clearX, clearY, 20, 0, Math.PI * 20);
       ctx.fill();
       console.log("画点");
+
   }
+
+  window.clearSomewhere = clearSomewhere;
 
   socket.on("update location", function(lx, ly) {
     clearSomewhere(lx, ly);
