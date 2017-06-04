@@ -50,3 +50,5 @@ function mouseClick(e){
 }
 
 canvasPoints.addEventListener("click", mouseClick, false);
+
+$(".hp .color").width = 80%;

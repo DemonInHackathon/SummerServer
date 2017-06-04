@@ -130,8 +130,13 @@ body {
   position: relative;
   bottom: -11px;
   left: 76px;
-  width: 200px;
+  width: 250px;
   height: 18px;
+}
+
+.hp .color {
+  width: 80%;
+  height: 100%;
   background-color: #FACA00;
 }
 
@@ -139,8 +144,13 @@ body {
   position: relative;
   bottom: -40px;
   left: 76px;
-  width: 138px;
+  width: 170px;
   height: 10px;
+}
+
+.heat .color {
+  width: 80%;
+  height: 100%;
   background-color: #FACA00;
 }
 
@@ -148,8 +158,13 @@ body {
   position: relative;
   bottom: -66px;
   left: 76px;
-  width: 120px;
+  width: 170px;
   height: 10px;
+}
+
+.water .color {
+  width: 80%;
+  height: 100%;
   background-color: #FACA00;
 }
 
