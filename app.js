@@ -22,7 +22,6 @@ server.listen(4321, '0.0.0.0', () => {
 
 io.on('connection', socket => {
   console.log("logged in!!")
-  socket.emit("update location", 0.8, 0.8)
   // when the client emits 'message', this listens and executes
   socket.on("update location", (dataX, dataY) => {
     // we tell the client to execute 'update location'

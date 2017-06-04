@@ -1,5 +1,5 @@
 $(function(){
-  var socket = io();
+  var socket = io.connect("/");
   var windowHeight = document.body.clientHeight;
 
   var canvas = document.getElementById("canvas");
