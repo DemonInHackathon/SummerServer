@@ -64,4 +64,12 @@ $(function(){
     document.getElementById("heat").style.width = (heat*100).toString() + "%";
     document.getElementById("water").style.width = (water*100).toString() + "%";
   })
+
+  socket.on("update infomation", function(lx, ly, heat, water, hp){
+    console.log("On Update Infomation");
+    clearSomewhere(lx, ly);
+    document.getElementById("hp").style.width = (hp*100).toString() + "%";
+    document.getElementById("heat").style.width = (heat*100).toString() + "%";
+    document.getElementById("water").style.width = (water*100).toString() + "%";
+  })
 });

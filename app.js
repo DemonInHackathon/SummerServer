@@ -30,6 +30,11 @@ io.on('connection', socket => {
     console.log(dataX, dataY)
   })
 
+  socket.on("update infomation", (lX, lY, heat, water, hp) => {
+    socket.emit("update infomation", lX, lY, heat, water, hp)
+    console.log("Get Info:", lX, lY, heat, water, hp)
+  })
+
   socket.on("update status", (heat, water, hp) => {
     // we tell the client to execute 'update status'
     socket.emit("update status", heat, water, hp)
