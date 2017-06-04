@@ -20,6 +20,7 @@ $(function(){
       ctx.beginPath();
       ctx.arc(clearX, clearY, 20, 0, Math.PI * 20);
       ctx.fill();
+      console.log("画点");
   }
 
   socket.on("update location", function(lx, ly) {
@@ -53,24 +54,9 @@ $(function(){
 
   canvasPoints.addEventListener("click", mouseClick, false);
 
-  function getHP(value) {
-    document.getElementById("hp").style.width = (value*100).toString() + "%";
-    console.log("hp:",value);
-  }
-
-  function getHeat(value) {
-    document.getElementById("heat").style.width = (value*100).toString() + "%";
-    console.log("heat:",value);
-  }
-
-  function getWater(value) {
-    document.getElementById("water").style.width = (value*100).toString() + "%";
-    console.log(":",value);
-  }
-
   socket.on("update status", function(heat, water, hp){
-    getHP(hp);
-    getHeat(heat);
-    getWater(water);
+    document.getElementById("hp").style.width = (hp*100).toString() + "%";
+    document.getElementById("heat").style.width = (heat*100).toString() + "%";
+    document.getElementById("water").style.width = (water*100).toString() + "%";
   })
 });
