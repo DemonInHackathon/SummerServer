@@ -4,6 +4,7 @@ body {
   background-color: #1A1A1A;
   width: 100vw;
   height: 100vh;
+  cursor: default;
 }
 
 .container {
@@ -32,6 +33,11 @@ body {
   left: 0;
   top: 0;
   z-index: 99999;
+}
+
+.container .ice_cream {
+  position: absolute;
+  left: calc(50vw - 50vh + 619px);
 }
 
 .background {

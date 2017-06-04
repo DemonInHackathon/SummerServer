@@ -41,20 +41,41 @@ $(function(){
   var offsetX2 = canvasPoints.offsetLeft;
   var offsetY2 = canvasPoints.offsetTop;
 
-  //ctx2.rect(0,0,canvas.width,canvas.height);
+  //ctx2.rect(0,0,canvas.width,canvas.height)
+  ctx2.beginPath();
+  var iceX = 619/2048*windowHeight;
+  var iceY = windowHeight - 508/2048*windowHeight;
+  var img = new Image();
+  img.onload = function() {
+    ctx2.drawImage(img, iceX, iceY, 30, 30);
+  };
+  img.src = "../images/iceCream.png";
 
   function mouseClick(e){
     ctx2.clearRect(0,0,canvas.width,canvas.height);
     var rect = canvasPoints.getBoundingClientRect();
     var x = e.pageX - rect.left;
     var y = e.pageY - rect.top;
+
     ctx2.fillStyle = "#FACA00";
     ctx2.beginPath();
     ctx2.arc(x, y, 8, 0, Math.PI * 20);
     ctx2.fill();
-    var mapX = x/windowHeight*100%;
-    var mapY = 20048 - y/windowHeight*100%;
+    var mapX = x/windowHeight;
+    var mapY = 1 - y/windowHeight;
     window.socket.emit("set direction", mapX, mapY);
+
+    //ctx2.fillStyle = "#444";
+    ctx2.beginPath();
+    var iceX = 619/2048*windowHeight;
+    var iceY = windowHeight - 508/2048*windowHeight;
+    var img = new Image();
+    img.onload = function() {
+      ctx2.drawImage(img, iceX, iceY, 40, 40);
+    };
+    img.src = "../images/iceCream.png";
+    //ctx2.arc(iceX, iceY, 20, 0, Math.PI * 20);
+    //ctx2.fill();
   }
 
   canvasPoints.addEventListener("click", mouseClick, false);
