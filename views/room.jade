@@ -1,0 +1,26 @@
+html
+	head
+		title!= title
+		link(href="/css/room.css", rel="stylesheet")
+		script(src="/js/jquery.js")
+		script(src="/socket.io/socket.io.js")
+		script(src="/js/ws.js")
+	body
+		.container
+			canvas#canvas
+			img(src="images/bg.png")
+			canvas#points
+		.background#bg
+			.left_up
+			.left_down
+			.right_up
+			.right_down
+		.time
+			.text 12 : 00
+		.dietimes
+			.text
+		.value
+			.hp
+			.heat
+			.water
+		script(src="/js/room.js")

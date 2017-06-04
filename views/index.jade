@@ -1,12 +1,18 @@
 html
 	head
 		title!= title
+		link(href="/css/main.css", rel="stylesheet")
 		script(src="/js/jquery.js")
 		script(src="/socket.io/socket.io.js")
 		script(src="/js/ws.js")
+		script(src="/js/main.js")
 	body
-		h1#text Hello
-		input#wsInputX(type="text" placeholder="x")
-		input#wsInputY(type="text" placeholder="y")
-		button#submit 发布
-		ul#container
+		.background
+			.left_up
+			.left_down
+			.right_up
+			.right_down
+		.main
+			.outside
+				input#inputTag.text_field(placeholder="世界编号")
+			.inside

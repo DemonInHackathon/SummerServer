@@ -11,6 +11,11 @@ app.get('/', (req, res) => {
     res.render('index', {title: "Hello", message: "Hello World!"})
 })
 
+app.get('/room', (req, res) => {
+    res.render('room')
+})
+
+
 server.listen(4321, '0.0.0.0', () => {
     console.log('server running http://localhost:4321');
 })
