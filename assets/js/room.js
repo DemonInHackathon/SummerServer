@@ -19,7 +19,7 @@ $(function(){
       var clearX = x*windowHeight - offsetX;
       var clearY = windowHeight - y*windowHeight - offsetY;
       ctx.beginPath();
-      ctx.arc(clearX, clearY, 30, 0, Math.PI * 20);
+      ctx.arc(clearX, clearY, 60, 0, Math.PI * 20);
       ctx.fill();
       console.log("画点");
 
