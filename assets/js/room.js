@@ -1,5 +1,6 @@
 $(function(){
   var socket = io.connect("/");
+  window.socket = socket;
   var windowHeight = document.body.clientHeight;
 
   var canvas = document.getElementById("canvas");
@@ -53,7 +54,7 @@ $(function(){
     ctx2.fill();
     var mapX = x/windowHeight*2048;
     var mapY = 20048 - y/windowHeight*2048;
-    socket.emit("set direction", mapX, mapY);
+    window.socket.emit("set direction", mapX, mapY);
   }
 
   canvasPoints.addEventListener("click", mouseClick, false);
@@ -65,7 +66,7 @@ $(function(){
     document.getElementById("water").style.width = (water*100).toString() + "%";
   })*/
 
-  socket.on("update infomation", function(lx, ly, heat, water, hp){
+  window.socket.on("update infomation", function(lx, ly, heat, water, hp){
     console.log("On Update Infomation");
     clearSomewhere(lx, ly);
     document.getElementById("hp").style.width = (hp*100).toString() + "%";
