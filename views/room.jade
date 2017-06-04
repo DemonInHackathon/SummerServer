@@ -4,7 +4,6 @@ html
 		link(href="/css/room.css", rel="stylesheet")
 		script(src="/js/jquery.js")
 		script(src="/socket.io/socket.io.js")
-		script(src="/js/ws.js")
 	body
 		.container
 			canvas#canvas
@@ -21,9 +20,9 @@ html
 			.text
 		.value
 			.hp
-				.color
+				.color#hp
 			.heat
-				.color
+				.color#heat
 			.water
-				.color
+				.color#water
 		script(src="/js/room.js")
