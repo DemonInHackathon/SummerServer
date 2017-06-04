@@ -38,6 +38,7 @@ $(function(){
   ctx2.rect(0,0,canvas.width,canvas.height);
 
   function mouseClick(e){
+    ctx2.clearRect(0,0,canvas.width,canvas.height);
     var rect = canvasPoints.getBoundingClientRect()
     var x = e.pageX - rect.left;
     var y = e.pageY - rect.top;
@@ -53,15 +54,15 @@ $(function(){
   canvasPoints.addEventListener("click", mouseClick, false);
 
   function getHP(value) {
-    document.getElementById("hp").style.width = value;
+    document.getElementById("hp").style.width = (value*100).toString() + "%";
   }
 
   function getHeat(value) {
-    document.getElementById("heat").style.width = value;
+    document.getElementById("heat").style.width = (value*100).toString() + "%";
   }
 
   function getWater(value) {
-    document.getElementById("water").style.width = value;
+    document.getElementById("water").style.width = (value*100).toString() + "%";
   }
 
   socket.on("update status", function(heat, water, hp){
