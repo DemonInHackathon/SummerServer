@@ -41,7 +41,7 @@ $(function(){
   var offsetX2 = canvasPoints.offsetLeft;
   var offsetY2 = canvasPoints.offsetTop;
 
-  ctx2.rect(0,0,canvas.width,canvas.height);
+  //ctx2.rect(0,0,canvas.width,canvas.height);
 
   function mouseClick(e){
     ctx2.clearRect(0,0,canvas.width,canvas.height);
@@ -52,8 +52,8 @@ $(function(){
     ctx2.beginPath();
     ctx2.arc(x, y, 8, 0, Math.PI * 20);
     ctx2.fill();
-    var mapX = x/windowHeight*2048;
-    var mapY = 20048 - y/windowHeight*2048;
+    var mapX = x/windowHeight*100%;
+    var mapY = 20048 - y/windowHeight*100%;
     window.socket.emit("set direction", mapX, mapY);
   }
 
