@@ -26,10 +26,10 @@ $(function(){
 
   window.clearSomewhere = clearSomewhere;
 
-  socket.on("update location", function(lx, ly) {
+  /*socket.on("update location", function(lx, ly) {
     console.log("ON update Location");
     clearSomewhere(lx, ly);
-  });
+  });*/
 
 
   // 画点
@@ -44,10 +44,10 @@ $(function(){
 
   function mouseClick(e){
     ctx2.clearRect(0,0,canvas.width,canvas.height);
-    var rect = canvasPoints.getBoundingClientRect()
+    var rect = canvasPoints.getBoundingClientRect();
     var x = e.pageX - rect.left;
     var y = e.pageY - rect.top;
-    ctx2.fillStyle = "#FACA00"
+    ctx2.fillStyle = "#FACA00";
     ctx2.beginPath();
     ctx2.arc(x, y, 8, 0, Math.PI * 20);
     ctx2.fill();
@@ -58,12 +58,12 @@ $(function(){
 
   canvasPoints.addEventListener("click", mouseClick, false);
 
-  socket.on("update status", function(heat, water, hp){
+  /*socket.on("update status", function(heat, water, hp){
     console.log("O Update Status");
     document.getElementById("hp").style.width = (hp*100).toString() + "%";
     document.getElementById("heat").style.width = (heat*100).toString() + "%";
     document.getElementById("water").style.width = (water*100).toString() + "%";
-  })
+  })*/
 
   socket.on("update infomation", function(lx, ly, heat, water, hp){
     console.log("On Update Infomation");
@@ -71,5 +71,5 @@ $(function(){
     document.getElementById("hp").style.width = (hp*100).toString() + "%";
     document.getElementById("heat").style.width = (heat*100).toString() + "%";
     document.getElementById("water").style.width = (water*100).toString() + "%";
-  })
+  });
 });
