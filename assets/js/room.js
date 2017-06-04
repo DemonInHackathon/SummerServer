@@ -27,6 +27,7 @@ $(function(){
   window.clearSomewhere = clearSomewhere;
 
   socket.on("update location", function(lx, ly) {
+    console.log("ON update Location");
     clearSomewhere(lx, ly);
   });
 
@@ -58,6 +59,7 @@ $(function(){
   canvasPoints.addEventListener("click", mouseClick, false);
 
   socket.on("update status", function(heat, water, hp){
+    console.log("O Update Status");
     document.getElementById("hp").style.width = (hp*100).toString() + "%";
     document.getElementById("heat").style.width = (heat*100).toString() + "%";
     document.getElementById("water").style.width = (water*100).toString() + "%";
